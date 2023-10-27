@@ -14,7 +14,7 @@ let queue2 = DispatchQueue(label: "MyCustomQueue2")
 queue1.async{
     print("Queue 1 - A Task Started")
     var a = 1
-    for i in 0...100000{
+    for i in 0...10000{
         a += 1
     }
     print("Queue 1 - A Task Ended")
@@ -23,7 +23,7 @@ queue1.async{
 queue1.async{
     print("Queue 1 - B Task Started")
     var a = 1
-    for i in 0...10{
+    for i in 0...100{
         a += 1
     }
     print("Queue 1 - B Task Ended")
@@ -32,7 +32,7 @@ queue1.async{
 queue1.async{
     print("Queue 1 - C Task Started")
     var a = 1
-    for i in 0...1000000{
+    for i in 0...1000{
         a += 1
     }
     print("Queue 1 - C Task Ended")
@@ -41,7 +41,7 @@ queue1.async{
 queue2.async{
     print("Queue 2 - A Task Started")
     var a = 1
-    for i in 0...100000{
+    for i in 0...1000{
         a += 1
     }
     print("Queue 2 - A Task Ended")
@@ -59,8 +59,25 @@ queue2.async{
 queue2.async{
     print("Queue 2 - C Task Started")
     var a = 1
-    for i in 0...1000000{
+    for i in 0...10000{
         a += 1
     }
     print("Queue 2 - C Task Ended")
 }
+
+/*
+ Print Results
+ 
+ Queue 1 - A Task Started
+ Queue 2 - A Task Started
+ Queue 2 - A Task Ended
+ Queue 2 - B Task Started
+ Queue 2 - B Task Ended
+ Queue 2 - C Task Started
+ Queue 1 - A Task Ended
+ Queue 1 - B Task Started
+ Queue 1 - B Task Ended
+ Queue 1 - C Task Started
+ Queue 1 - C Task Ended
+ Queue 2 - C Task Ended
+ */
