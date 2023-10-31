@@ -9,8 +9,8 @@ import UIKit
 //
 
 // For concurency
-let concurrentQueue1 = DispatchQueue(label: "MyConcurrentQueue1")
-let concurrentQueue2 = DispatchQueue(label: "MyConcurrentQueue2")
+let concurrentQueue1 = DispatchQueue(label: "MyConcurrentQueue1", attributes: .concurrent)
+let concurrentQueue2 = DispatchQueue(label: "MyConcurrentQueue2", attributes: .concurrent)
 concurrentQueue1.async{
     print("Concurrent Queue 1 - A Task Started")
     var a = 1
@@ -21,7 +21,7 @@ concurrentQueue1.async{
 }
 
 concurrentQueue1.async{
-    print("Concurrent Queue 1 - A Task Started")
+    print("Concurrent Queue 1 - B Task Started")
     var a = 1
     for i in 0...100{
         a += 1
@@ -30,7 +30,7 @@ concurrentQueue1.async{
 }
 
 concurrentQueue1.async{
-    print("Concurrent Queue 1 - A Task Started")
+    print("Concurrent Queue 1 - C Task Started")
     var a = 1
     for i in 0...1000{
         a += 1
@@ -48,7 +48,7 @@ concurrentQueue2.async{
 }
 
 concurrentQueue2.async{
-    print("Concurrent Queue 2 - A Task Started")
+    print("Concurrent Queue 2 - B Task Started")
     var a = 1
     for i in 0...100{
         a += 1
@@ -57,7 +57,7 @@ concurrentQueue2.async{
 }
 
 concurrentQueue2.async{
-    print("Concurrent Queue 2 - A Task Started")
+    print("Concurrent Queue 2 - C Task Started")
     var a = 1
     for i in 0...1000{
         a += 1
@@ -68,14 +68,16 @@ concurrentQueue2.async{
 /*
  Print Results
  
- Concurrent Queue 1 - A Task Ended
  Concurrent Queue 1 - A Task Started
+ Concurrent Queue 1 - B Task Started
+ Concurrent Queue 1 - C Task Started
+ Concurrent Queue 2 - A Task Started
+ Concurrent Queue 2 - B Task Started
+ Concurrent Queue 2 - C Task Started
  Concurrent Queue 1 - B Task Ended
- Concurrent Queue 1 - A Task Started
- Concurrent Queue 2 - A Task Ended
- Concurrent Queue 2 - A Task Started
  Concurrent Queue 2 - B Task Ended
- Concurrent Queue 2 - A Task Started
  Concurrent Queue 1 - C Task Ended
  Concurrent Queue 2 - C Task Ended
+ Concurrent Queue 2 - A Task Ended
+ Concurrent Queue 1 - A Task Ended
  */
