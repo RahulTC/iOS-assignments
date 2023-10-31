@@ -59,3 +59,12 @@ let charmander = Pokemon.basicForm(name: "Charmander", type: "Fire")
 let charizard = Pokemon.evolvedForm(name: "Charizard", type: "Fire & Flying")
 let pikachu = Pokemon.basicForm(name: "Pikachu", type: "Electric")
 
+
+
+
+
+// Example for Generics
+/*
+ Property Owner = Name
+ Housing property = Castle, Mansion, House, Apartment, Trailer
+ */
