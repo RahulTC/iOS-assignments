@@ -5,5 +5,7 @@
         <page name='GlobalQueue'/>
         <page name='AwaitAsync'/>
         <page name='Actors'/>
+        <page name='DispatchGroups'/>
+        <page name='AsyncLet'/>
     </pages>
 </playground>
